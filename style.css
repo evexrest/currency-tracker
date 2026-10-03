@@ -1,0 +1,30 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #050506;
+    color: #f5f5f5;
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
+#rates {
+    list-style: none;
+    padding: 0;
+}
+
+#rates li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+}
+
+#date {
+    color: #888;
+    font-size: 0.85rem;
+}

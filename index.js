@@ -1,13 +1,19 @@
-const url = "https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR";
+const currencies = ["CAD", "EUR", "GBP", "JPY"];
+const url = `https://api.frankfurter.dev/v1/latest?base=USD&symbols=${currencies.join(",")}`;
 
-async function showRate() {
+async function showRates() {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
+    const list = document.getElementById("rates");
 
-    document.getElementById("price").textContent = `1 USD = ${data.rates.EUR} EUR`;
+    for (const code of currencies) {
+        const item = document.createElement("li");
+        item.innerHTML = `<span>${code}</span><span>${data.rates[code].toFixed(2)}</span>`;
+        list.appendChild(item);
+    }
+
     document.getElementById("date").textContent = "As of " + data.date;
 }
 
-showRate();
+showRates();
